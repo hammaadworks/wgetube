@@ -1,0 +1,52 @@
+# Workflow Status Template
+# This tracks progress through BMM methodology phases
+# Phase 3/4 (Implementation) is tracked separately in sprint-status.yaml
+
+# generated: {{generated}}
+# project: {{project_name}}
+# project_type: {{project_type}}
+# selected_track: {{selected_track}}
+# field_type: {{field_type}}
+# workflow_path: {{workflow_path_file}}
+
+# STATUS DEFINITIONS:
+# ==================
+# Initial Status (before completion):
+#   - required: Must be completed to progress
+#   - optional: Can be completed but not required
+#   - recommended: Strongly suggested but not required
+#   - conditional: Required only if certain conditions met (e.g., if_has_ui)
+#
+# Completion Status:
+#   - {file-path}: File created/found (e.g., "docs/product-brief.md")
+#   - skipped: Optional/conditional workflow that was skipped
+
+generated: "2025-11-10"
+project: "wgetube"
+project_type: "software"
+selected_track: "method"
+field_type: "greenfield"
+user_description: "A web app (most probably free) where I can copy a youtube video link and paste to download it. It is cross platform and os compliant working on mobile, desktop etc (as it is a web app). It must be reliable and compliant to be hosted not a quick fix. the backend if at all required can be written in js or python (but go with the least costing hosting options, as I actually don't want to pay heavy in the prior days). You can take inspiration from popular github libraries and projects. Just remember this must be reliable and work seamlessly without jitter. Later we can also venture this webapp into a chrome extension, mobile PWA and keep adding exciting new features."
+brainstorm_requested: true
+research_requested: true
+product_brief_requested: false
+workflow_path: "method-greenfield.yaml"
+
+workflow_status:
+  # Phase 0: Discovery (Optional)
+  brainstorm-project: optional # agent: analyst
+  research: optional # agent: analyst
+
+  # Phase 1: Planning
+  prd: required # agent: pm
+  validate-prd: optional # agent: pm
+  create-design: conditional # agent: ux-designer
+
+  # Phase 2: Solutioning
+  create-architecture: required # agent: architect
+  validate-architecture: optional # agent: architect
+  solutioning-gate-check: required # agent: architect
+
+  # Phase 3: Implementation
+  sprint-planning: required # agent: sm
+
