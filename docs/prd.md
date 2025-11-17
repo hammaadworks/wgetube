@@ -66,7 +66,6 @@ The long-term vision for Wgetube includes:
 
 ---
 
-{{#if innovation_patterns}}
 
 ## Innovation & Novel Patterns
 
@@ -75,20 +74,16 @@ Wgetube exhibits innovation primarily through its seamless "Share" Menu Integrat
 ### Validation Approach
 
 The validation approach for these innovations will be primarily through user adoption and direct feedback. For the "Share" Menu Integration, success will be validated by the ease and frequency of use, ensuring a truly frictionless experience. For the "Looper Tutor," effectiveness will be validated by observing user engagement with the rote learning features and gathering qualitative feedback on how these features contribute to their Quran Hifz progress. Given the current scope, formal analytics or A/B testing are not in scope, so direct user interaction and qualitative assessment will be key.
-{{/if}}
 
 ---
 
-{{#if project_type_requirements}}
 
 ## web_app Specific Requirements
 
 As a web application, Wgetube will be developed as a Single Page Application (SPA) to provide a fluid user experience. It must be cross-operating system and cross-browser compliant, ensuring broad accessibility and functionality across various devices and browsers. While real-time interactions are not a primary focus, the "Looper Tutor" will incorporate necessary real-time elements for playback control. A critical requirement is adherence to the highest WCAG (Web Content Accessibility Guidelines) standards, ensuring the application is usable by individuals with disabilities. Performance will be a key consideration to deliver a seamless and reliable experience, particularly for the downloading and playback functionalities. SEO is not a primary concern at this stage.
-{{/if}}
 
 ---
 
-{{#if ux_principles}}
 
 ## User Experience Principles
 
@@ -101,7 +96,6 @@ The most critical user interactions in Wgetube, designed to be seamless and intu
 2.  **Video Download and Format Selection:** The user's journey from pasting a link (or sharing) to selecting desired video/audio formats and initiating the download.
 3.  **Looper Tutor Controls:** Intuitive controls within the player for A-B section looping, adjusting playback speed, and managing bookmarks, all designed to enhance the rote learning experience for Quran Hifz.
 4.  **Local File Management:** Effortless organization, access, and playback of downloaded content within the application.
-{{/if}}
 
 ---
 

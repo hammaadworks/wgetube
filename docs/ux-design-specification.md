@@ -329,7 +329,7 @@ Looper Tutor
 
 ### 6.1 Component Strategy
 
-{{component_library_strategy}}
+The component strategy is to leverage the accessible, unstyled primitives of Radix UI, combined with the styled components of shadcn/ui, and additional visually appealing components from Magic UI and Aceternity UI. This provides maximum flexibility and control over styling while ensuring accessibility and a great developer experience within the React ecosystem. For styling, `globals.css` will be utilized, allowing for easy theme updates via tools like `https://tweakcn.com/`.
 
 ---
 
@@ -337,7 +337,13 @@ Looper Tutor
 
 ### 7.1 Consistency Rules
 
-{{ux_pattern_decisions}}
+-   **Component Naming:** Use PascalCase for all React components (e.g., `VideoPlayer`, `TasbeehCounter`).
+-   **File Naming:** Use kebab-case for general files (e.g., `video-player.tsx`) and PascalCase for component files (e.g., `VideoPlayer.tsx`).
+-   **User Feedback for Actions:** Provide immediate visual and/or haptic feedback for all user interactions (e.g., button clicks, slider adjustments, loop selections).
+-   **Error Messaging:** Display user-friendly, actionable error messages for all client-side and API-related errors, avoiding technical jargon. Utilize toast notifications for minor issues and modal dialogs for critical errors.
+-   **Loading States:** Implement clear loading indicators (spinners, skeleton screens) for asynchronous operations to manage user expectations.
+-   **Accessibility:** Ensure all interactive elements are keyboard navigable, have appropriate ARIA labels for screen readers, and meet WCAG color contrast standards.
+-   **Code Organization:** Organize UI components and related logic in a feature-based structure (e.g., `src/features/downloader`, `src/features/looper-tutor`) to maintain modularity and clarity.
 
 ---
 
@@ -345,7 +351,7 @@ Looper Tutor
 
 ### 8.1 Responsive Strategy
 
-{{responsive_accessibility_strategy}}
+The application will adopt a mobile-first, cross-platform optimized responsive strategy, ensuring a consistent and intuitive user experience across various devices and screen sizes (mobile, tablet, desktop). Layouts and components will fluidly adapt to available screen real estate. Adherence to the highest WCAG (Web Content Accessibility Guidelines) standards is paramount, ensuring the application is fully usable and accessible to individuals with diverse abilities, including robust keyboard navigation, screen reader support, and appropriate color contrast.
 
 ### 8.2 Theme Switching (Light/Dark Mode)
 
@@ -359,7 +365,7 @@ Looper Tutor
 
 ### 9.1 Completion Summary
 
-{{completion_summary}}
+This UX Design Specification provides a comprehensive guide for the design and implementation of Wgetube, ensuring a minimalist, intuitive, and delightful user experience. It details the chosen design system, core UX patterns, visual foundation, design directions, and critical user journeys, all aligned with the project's functional and non-functional requirements.
 
 ---
 
@@ -367,20 +373,20 @@ Looper Tutor
 
 ### Related Documents
 
-- Product Requirements: `{{prd_file}}`
-- Product Brief: `{{brief_file}}`
-- Brainstorming: `{{brainstorm_file}}`
+- Product Requirements: `prd.md`
+- Product Brief: `N/A`
+- Brainstorming: `N/A`
 
 ### Core Interactive Deliverables
 
 This UX Design Specification was created through visual collaboration:
 
-- **Color Theme Visualizer**: {{color_themes_html}}
+- **Color Theme Visualizer**: `ux-color-themes.html`
   - Interactive HTML showing all color theme options explored
   - Live UI component examples in each theme
   - Side-by-side comparison and semantic color usage
 
-- **Design Direction Mockups**: {{design_directions_html}}
+- **Design Direction Mockups**: `ux-design-directions.html`
   - Interactive HTML with 6-8 complete design approaches
   - Full-screen mockups of key screens
   - Design philosophy and rationale for each direction
