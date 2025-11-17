@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wgetube Color Theme Visualizer</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        h1, h2, h3 { color: #2c3e50; }
+        .theme-container { background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 30px; padding: 20px; }
+        .theme-header { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+        .color-palette { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
+        .color-swatch { width: 100px; height: 100px; border-radius: 4px; display: flex; flex-direction: column; justify-content: flex-end; padding: 8px; box-sizing: border-box; color: #fff; font-size: 0.8em; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+        .color-swatch.light-text { color: #333; text-shadow: none; }
+        .component-examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .btn { padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 0.9em; transition: background-color 0.2s ease; }
+        .input-field { padding: 8px 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 0.9em; width: 100%; box-sizing: border-box; }
+        .card { border-radius: 8px; padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .alert { padding: 10px; border-radius: 5px; font-size: 0.9em; }
+
+        /* Theme 1: Calm & Focused */
+        .theme-1 .primary { background-color: #34495E; } .theme-1 .secondary { background-color: #2ECC71; } .theme-1 .accent { background-color: #AAB7B8; }
+        .theme-1 .success { background-color: #2ECC71; } .theme-1 .warning { background-color: #F39C12; } .theme-1 .error { background-color: #E74C3C; }
+        .theme-1 .bg-light { background-color: #ECF0F1; color: #34495E; } .theme-1 .bg-medium { background-color: #BDC3C7; color: #34495E; } .theme-1 .bg-dark { background-color: #7F8C8D; }
+        .theme-1 .btn-primary { background-color: #34495E; color: #fff; } .theme-1 .btn-primary:hover { background-color: #2c3e50; }
+        .theme-1 .btn-secondary { background-color: #2ECC71; color: #fff; } .theme-1 .btn-secondary:hover { background-color: #27ae60; }
+        .theme-1 .input-field { border-color: #BDC3C7; }
+        .theme-1 .card { background-color: #ECF0F1; }
+        .theme-1 .alert-success { background-color: #D4EDDA; color: #155724; border-color: #C3E6CB; }
+        .theme-1 .alert-error { background-color: #F8D7DA; color: #721C24; border-color: #F5C6CB; }
+
+        /* Theme 2: Empowering & Modern */
+        .theme-2 .primary { background-color: #6C5CE7; } .theme-2 .secondary { background-color: #00CEC9; } .theme-2 .accent { background-color: #FFEAA7; color: #333; }
+        .theme-2 .success { background-color: #55E6C1; color: #333; } .theme-2 .warning { background-color: #FDCB6E; color: #333; } .theme-2 .error { background-color: #FF7675; }
+        .theme-2 .bg-light { background-color: #F8F8F8; color: #333; } .theme-2 .bg-medium { background-color: #DFE6E9; color: #333; } .theme-2 .bg-dark { background-color: #636E72; }
+        .theme-2 .btn-primary { background-color: #6C5CE7; color: #fff; } .theme-2 .btn-primary:hover { background-color: #5a4ad1; }
+        .theme-2 .btn-secondary { background-color: #00CEC9; color: #fff; } .theme-2 .btn-secondary:hover { background-color: #00b3af; }
+        .theme-2 .input-field { border-color: #DFE6E9; }
+        .theme-2 .card { background-color: #F8F8F8; }
+        .theme-2 .alert-success { background-color: #D1ECF1; color: #0C5460; border-color: #BEE5EB; } /* Using a light blue for success for contrast */
+        .theme-2 .alert-error { background-color: #F8D7DA; color: #721C24; border-color: #F5C6CB; }
+
+        /* Theme 3: Warm & Engaging */
+        .theme-3 .primary { background-color: #D35400; } .theme-3 .secondary { background-color: #27AE60; } .theme-3 .accent { background-color: #F7DC6F; color: #333; }
+        .theme-3 .success { background-color: #27AE60; } .theme-3 .warning { background-color: #F1C40F; color: #333; } .theme-3 .error { background-color: #C0392B; }
+        .theme-3 .bg-light { background-color: #FDF6E3; color: #333; } .theme-3 .bg-medium { background-color: #E0D8C6; color: #333; } .theme-3 .bg-dark { background-color: #655D50; }
+        .theme-3 .btn-primary { background-color: #D35400; color: #fff; } .theme-3 .btn-primary:hover { background-color: #ba4a00; }
+        .theme-3 .btn-secondary { background-color: #27AE60; color: #fff; } .theme-3 .btn-secondary:hover { background-color: #229a54; }
+        .theme-3 .input-field { border-color: #E0D8C6; }
+        .theme-3 .card { background-color: #FDF6E3; }
+        .theme-3 .alert-success { background-color: #D4EDDA; color: #155724; border-color: #C3E6CB; }
+        .theme-3 .alert-error { background-color: #F8D7DA; color: #721C24; border-color: #F5C6CB; }
+
+        .color-swatch.light-text { color: #333; text-shadow: none; }
+    </style>
+</head>
+<body>
+    <h1>Wgetube Color Theme Visualizer</h1>
+    <p>Explore these conceptual color themes for Wgetube. This is a simplified representation; a full visualizer would include more components and interactive elements.</p>
+
+    <!-- Theme 1: Calm & Focused -->
+    <div class="theme-container theme-1">
+        <h2 class="theme-header">Theme 1: Calm & Focused</h2>
+        <p><strong>Personality:</strong> Professional, serene, focused. Ideal for deep learning and concentration.</p>
+
+        <h3>Color Palette</h3>
+        <div class="color-palette">
+            <div class="color-swatch primary">Primary<br>#34495E</div>
+            <div class="color-swatch secondary">Secondary<br>#2ECC71</div>
+            <div class="color-swatch accent light-text">Accent<br>#AAB7B8</div>
+            <div class="color-swatch success">Success<br>#2ECC71</div>
+            <div class="color-swatch warning light-text">Warning<br>#F39C12</div>
+            <div class="color-swatch error">Error<br>#E74C3C</div>
+            <div class="color-swatch bg-light light-text">Background<br>#ECF0F1</div>
+            <div class="color-swatch bg-medium light-text">Medium Gray<br>#BDC3C7</div>
+            <div class="color-swatch bg-dark">Dark Gray<br>#7F8C8D</div>
+        </div>
+
+        <h3>Component Examples</h3>
+        <div class="component-examples">
+            <div><button class="btn btn-primary">Primary Button</button></div>
+            <div><button class="btn btn-secondary">Secondary Button</button></div>
+            <div><input type="text" class="input-field" placeholder="Text Input"></div>
+            <div class="card bg-light">Card Title<p>Card content goes here.</p></div>
+            <div class="alert alert-success">Success Message!</div>
+            <div class="alert alert-error">Error Message!</div>
+        </div>
+    </div>
+
+    <!-- Theme 2: Empowering & Modern -->
+    <div class="theme-container theme-2">
+        <h2 class="theme-header">Theme 2: Empowering & Modern</h2>
+        <p><strong>Personality:</strong> Modern, empowering, clean. Reflects a dynamic and engaging learning experience.</p>
+
+        <h3>Color Palette</h3>
+        <div class="color-palette">
+            <div class="color-swatch primary">Primary<br>#6C5CE7</div>
+            <div class="color-swatch secondary">Secondary<br>#00CEC9</div>
+            <div class="color-swatch accent light-text">Accent<br>#FFEAA7</div>
+            <div class="color-swatch success light-text">Success<br>#55E6C1</div>
+            <div class="color-swatch warning light-text">Warning<br>#FDCB6E</div>
+            <div class="color-swatch error">Error<br>#FF7675</div>
+            <div class="color-swatch bg-light light-text">Background<br>#F8F8F8</div>
+            <div class="color-swatch bg-medium light-text">Medium Gray<br>#DFE6E9</div>
+            <div class="color-swatch bg-dark">Dark Gray<br>#636E72</div>
+        </div>
+
+        <h3>Component Examples</h3>
+        <div class="component-examples">
+            <div><button class="btn btn-primary">Primary Button</button></div>
+            <div><button class="btn btn-secondary">Secondary Button</button></div>
+            <div><input type="text" class="input-field" placeholder="Text Input"></div>
+            <div class="card bg-light">Card Title<p>Card content goes here.</p></div>
+            <div class="alert alert-success">Success Message!</div>
+            <div class="alert alert-error">Error Message!</div>
+        </div>
+    </div>
+
+    <!-- Theme 3: Warm & Engaging -->
+    <div class="theme-container theme-3">
+        <h2 class="theme-header">Theme 3: Warm & Engaging</h2>
+        <p><strong>Personality:</strong> Approachable, inviting, comfortable. Creates a pleasant and supportive learning environment.</p>
+
+        <h3>Color Palette</h3>
+        <div class="color-palette">
+            <div class="color-swatch primary">Primary<br>#D35400</div>
+            <div class="color-swatch secondary">Secondary<br>#27AE60</div>
+            <div class="color-swatch accent light-text">Accent<br>#F7DC6F</div>
+            <div class="color-swatch success">Success<br>#27AE60</div>
+            <div class="color-swatch warning light-text">Warning<br>#F1C40F</div>
+            <div class="color-swatch error">Error<br>#C0392B</div>
+            <div class="color-swatch bg-light light-text">Background<br>#FDF6E3</div>
+            <div class="color-swatch bg-medium light-text">Medium Gray<br>#E0D8C6</div>
+            <div class="color-swatch bg-dark">Dark Gray<br>#655D50</div>
+        </div>
+
+        <h3>Component Examples</h3>
+        <div class="component-examples">
+            <div><button class="btn btn-primary">Primary Button</button></div>
+            <div><button class="btn btn-secondary">Secondary Button</button></div>
+            <div><input type="text" class="input-field" placeholder="Text Input"></div>
+            <div class="card bg-light">Card Title<p>Card content goes here.</p></div>
+            <div class="alert alert-success">Success Message!</div>
+            <div class="alert alert-error">Error Message!</div>
+        </div>
+    </div>
+
+    <p><em>Note: This is a conceptual visualization. A real interactive tool would allow for more dynamic exploration and customization.</em></p>
+</body>
+</html>
