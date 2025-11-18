@@ -11,14 +11,16 @@
 
 This document provides the complete epic and story breakdown for Wgetube, decomposing the requirements from the [PRD](./PRD.md) into implementable stories.
 
+**Development Methodology:** We will follow an Incremental Integrated Development approach. Progress will be integrated with the main application and deployed after every story or a couple of stories, enabling stakeholders to demo and review progress frequently.
+
 **Living Document Notice:** This is the initial version. It will be updated after UX Design and Architecture workflows add interaction and technical details to stories.
 
 - **Epic 1: Foundation & Core Downloader**
   - Goal: Establish the basic application infrastructure and enable users to download videos from supported platforms.
-  - FRs Covered: FR1, FR2, FR3, FR4, FR14, FR15, FR17 (initial setup aspects)
+  - FRs Covered: FR1, FR1.1, FR2, FR3, FR4, FR14, FR15, FR17 (initial setup aspects)
 - **Epic 2: Looper Tutor & Media Management**
   - Goal: Provide a specialized player for rote learning and allow users to manage their downloaded/imported content.
-  - FRs Covered: FR5, FR6, FR7, FR8, FR8.1, FR8.2, FR9, FR10, FR10.1, FR11, FR12, FR12.1, FR17 (playback aspects)
+  - FRs Covered: FR5, FR6, FR7, FR8, FR8.1, FR8.2, FR9, FR10, FR10.1, FR10.2, FR11, FR12, FR12.1, FR17 (playback aspects)
 - **Epic 3: Tasbeeh Counter & Personalization**
   - Goal: Offer a dedicated Tasbeeh counter feature with customization and history, and allow for general application personalization.
   - FRs Covered: FR20, FR20.1, FR21, FR22, FR23, FR24, FR24.1, FR25, FR26
@@ -34,18 +36,20 @@ This document provides the complete epic and story breakdown for Wgetube, decomp
 ## Functional Requirements Inventory
 
 - FR1: Users can initiate video downloads by pasting a URL from YouTube (Videos/Shorts) or Instagram Reels.
+- FR1.1: Users can trigger video downloads by replacing the domain of a supported video URL with the Wgetube domain.
 - FR2: Users can select desired video and audio formats/qualities for download.
 - FR3: The system can automatically download videos when shared directly to the Wgetube PWA from mobile devices.
 - FR4: The system can process and store downloaded video and audio content locally, along with associated metadata for history and library management.
 - FR5: Users can play downloaded video and audio content, including fullscreen and black screen modes.
 - FR6: Users can adjust the playback speed of content via a slider with granular control and hints (e.g., 0.5x, 1.0x, 1.25x), allowing for intermediate values.
 - FR7: Users can define and loop specific A-B sections of content for repetitive learning, with seamless and precise setting mechanisms providing immediate visual/auditory feedback.
-- FR8: Users can save bookmarks within content for quick access to specific points.
+- FR8: Users can save loops within content for quick access.
 - FR8.1: Users can save defined A-B loop sections with a custom name for quick access and reuse, and edit their name and A-B timestamps later.
 - FR8.2: The Looper Tutor tracks and displays the number of times a loop has been played, both for the current session and aggregated historically.
 - FR9: The player supports background playback of audio.
 - FR10: The player supports screen-off playback of audio.
 - FR10.1: Users can import local video and audio files from their device into Wgetube's library for use with the Looper Tutor, with associated metadata stored.
+- FR10.2: Users can remove downloaded or imported media from their local library.
 - FR11: Users can access and browse their library of downloaded content.
 - FR12: Users can perform basic organization of downloaded files (e.g., view by date, title).
 - FR12.1: Users can configure system default settings (e.g., theme, default playback speed, etc.).
@@ -71,39 +75,43 @@ This document provides the complete epic and story breakdown for Wgetube, decomp
 
 ## FR Coverage Map
 
-- FR1: Epic 1
-- FR2: Epic 1
-- FR3: Epic 1
-- FR4: Epic 1
-- FR5: Epic 2
-- FR6: Epic 2
-- FR7: Epic 2
-- FR8: Epic 2
-- FR8.1: Epic 2
-- FR8.2: Epic 2
-- FR9: Epic 2
-- FR10: Epic 2
-- FR10.1: Epic 2
-- FR11: Epic 2
-- FR12: Epic 2
-- FR12.1: Epic 2
-- FR13: Epic 4
-- FR14: Epic 1, Epic 4
-- FR15: Epic 1, Epic 4
-- FR16: Epic 4
-- FR17: Epic 1, Epic 2, Epic 4
-- FR18: Epic 5
-- FR19: Epic 5
-- FR20: Epic 3
-- FR20.1: Epic 3
-- FR21: Epic 3
-- FR22: Epic 3
-- FR23: Epic 3
-- FR24: Epic 3
-- FR24.1: Epic 3
-- FR25: Epic 3
-- FR26: Epic 3
-- FR27: Epic 5
+| FR ID | Description | Epic(s) | Story(ies) |
+|---|---|---|---|
+| FR1 | Users can initiate video downloads by pasting a URL from YouTube (Videos/Shorts) or Instagram Reels. | Epic 1 | Story 1.2 |
+| FR1.1 | Users can trigger video downloads by replacing the domain of a supported video URL with the Wgetube domain. | Epic 1 | Story 1.4 |
+| FR2 | Users can select desired video and audio formats/qualities for download. | Epic 1 | Story 1.2 |
+| FR3 | The system can automatically download videos when shared directly to the Wgetube PWA from mobile devices. | Epic 1 | Story 1.3 |
+| FR4 | The system can process and store downloaded video and audio content locally, along with associated metadata for history and library management. | Epic 1 | Story 1.5 |
+| FR5 | Users can play downloaded video and audio content, including fullscreen and black screen modes. | Epic 2 | Story 2.3 |
+| FR6 | Users can adjust the playback speed of content via a slider with granular control and hints (e.g., 0.5x, 1.0x, 1.25x), allowing for intermediate values. | Epic 2 | Story 2.4 |
+| FR7 | Users can define and loop specific A-B sections of content for repetitive learning, with seamless and precise setting mechanisms providing immediate visual/auditory feedback. | Epic 2 | Story 2.5 |
+| FR8 | Users can save loops within content for quick access. | Epic 2 | Story 2.6 |
+| FR8.1 | Users can save defined A-B loop sections with a custom name for quick access and reuse, and edit their name and A-B timestamps later. | Epic 2 | Story 2.6 |
+| FR8.2 | The Looper Tutor tracks and displays the number of times a loop has been played, both for the current session and aggregated historically. | Epic 2 | Story 2.5 |
+| FR9 | The player supports background playback of audio. | Epic 2 | Story 2.7 |
+| FR10 | The player supports screen-off playback of audio. | Epic 2 | Story 2.7 |
+| FR10.1 | Users can import local video and audio files from their device into Wgetube's library for use with the Looper Tutor, with associated metadata stored. | Epic 2 | Story 2.1 |
+| FR10.2 | Users can remove downloaded or imported media from their local library. | Epic 2 | Story 2.2 |
+| FR11 | Users can access and browse their library of downloaded content. | Epic 2 | Story 2.8 |
+| FR12 | Users can perform basic organization of downloaded files (e.g., view by date, title). | Epic 2 | Story 2.8 |
+| FR12.1 | Users can configure system default settings (e.g., theme, default playback speed, etc.). | Epic 2 | Story 2.8 |
+| FR13 | The application provides a minimalist and intuitive user interface. | Epic 4 | Story 4.1 |
+| FR14 | The application is a Single Page Application (SPA). | Epic 1, Epic 4 | Story 1.1, Story 4.1 |
+| FR15 | The application is cross-operating system and cross-browser compliant. | Epic 1, Epic 4 | Story 1.1, Story 4.1 |
+| FR16 | The application adheres to WCAG highest standards for accessibility. | Epic 4 | Story 4.2 |
+| FR17 | The application delivers a highly performant and seamless user experience, particularly for downloading and playback. | Epic 1, Epic 2, Epic 4 | Story 1.1, Story 2.3, Story 4.3 |
+| FR18 | Users can download specific video chapters or define custom start/end timestamps for downloads. (Growth Feature) | Epic 5 | Story 5.2 |
+| FR19 | Users can initiate downloads via a browser extension for one-click functionality. (Growth Feature) | Epic 5 | Story 5.3 |
+| FR20 | Users can access a dedicated Tasbeeh Counter feature. | Epic 3 | Story 3.1 |
+| FR20.1 | Users can add, edit, and delete custom Zikr phrases and their translations. | Epic 3 | Story 3.2 |
+| FR21 | The Tasbeeh Counter prominently displays the current count, along with a configurable Zikr (phrase) and its translation. | Epic 3 | Story 3.1 |
+| FR22 | Users can increment and decrement the count via on-screen buttons (increment button always present, decrement button configurable), accompanied by haptic feedback. | Epic 3 | Story 3.1 |
+| FR23 | Users can configure input methods for incrementing/decrementing the count, including assigning volume up/down buttons on mobile devices and specific keyboard keys (e.g., spacebar) for desktop/keyboard users. | Epic 3 | Story 3.3 |
+| FR24 | Users can reset the current count. | Epic 3 | Story 3.1 |
+| FR24.1 | The Tasbeeh Counter provides visual feedback (e.g., confetti-like designs) upon reaching specific milestones (e.g., 10, 33, 66, 99) and the user-defined session target. | Epic 3 | Story 3.3 |
+| FR25 | The Tasbeeh Counter stores a history of Zikrs and their counts, and allows users to set a target for the current session. | Epic 3 | Story 3.4 |
+| FR26 | Users can view previous Zikrs as cards and select one to resume counting. | Epic 3 | Story 3.4 |
+| FR27 | The application provides a clean and informative landing page that introduces Wgetube, discusses its key features, and provides information for user training and engagement. | Epic 5 | Story 5.1 |
 
 ---
 
@@ -142,12 +150,14 @@ So that I can save the video for offline viewing.
 **When** I paste a valid YouTube video URL into the input field and click "Fetch Details"
 **Then** the system displays video details (thumbnail, title, duration) and available formats.
 
+**And** the system performs sanity checks on the pasted URL to ensure it's a valid video source and prevents unnecessary resource usage for invalid links.
+**And** the system optimizes the process to quickly display download options and initiate download without wasting resources.
 **And** when I select a desired format/quality and click "Download", then the video download initiates and progress is shown.
-**And** when the download is complete, then the downloaded video is available in my local library.
+**And** when the download is complete, then the system proceeds to save the file as per Story 1.5.
 
 **Prerequisites:** Story 1.1
 
-**Technical Notes:** Implement a Next.js API route using `ytdlp-nodejs` to handle video fetching and downloading. Client-side UI for URL input, format selection, and download initiation.
+**Technical Notes:** Implement a Next.js API route using `ytdlp-nodejs` to handle video fetching and downloading. Client-side UI for URL input, format selection, and download initiation. Include validation logic for URLs. Optimize API calls and data processing for efficiency.
 
 ### Story 1.3: PWA Share Target Integration
 
@@ -161,14 +171,34 @@ So that the download process starts automatically without manual copy-pasting.
 **When** I share a YouTube or Instagram Reels link from its native app
 **Then** Wgetube appears as a share target.
 
+**And** the system performs sanity checks on the shared URL to ensure it's a valid video source and prevents unnecessary resource usage for invalid links.
+**And** the system optimizes the process to quickly display download options and initiate download without wasting resources.
 **And** when Wgetube is selected as a share target, then the PWA opens, video details are automatically fetched, and the download process is initiated.
 **And** when the download is complete, then the downloaded video is available in my local library.
 
 **Prerequisites:** Story 1.1, Story 1.2
 
-**Technical Notes:** Implement PWA Web Share Target API. Configure `manifest.json` and service worker to handle shared URLs.
+**Technical Notes:** Implement PWA Web Share Target API. Configure `manifest.json` and service worker to handle shared URLs. Include validation logic for shared URLs. Optimize PWA service worker handling and data processing for efficiency.
 
-### Story 1.4: Direct File System Access for Downloaded Content
+### Story 1.4: Domain Replacement Download Trigger
+
+As a user,
+I want to be able to replace "youtube.com" or "instagram.com" in a video URL with "wgetube.hammaadworks.com" in my browser's address bar,
+So that the Wgetube application automatically processes the video for download.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing a video on a supported platform (e.g., YouTube, Instagram).
+**When** I manually change the domain in the URL from `youtube.com` to `wgetube.hammaadworks.com` (e.g., `https://www.youtube.com/watch?v=abc` becomes `https://www.wgetube.hammaadworks.com/watch?v=abc`) and navigate to it.
+**Then** the Wgetube application launches (if not already open) and automatically initiates the video details fetching process for the original video URL.
+**And** the system performs sanity checks on the modified URL to ensure it's a valid video source.
+**And** the system optimizes the process to quickly display download options without unnecessary resource consumption.
+
+**Prerequisites:** Story 1.1, Story 1.2
+
+**Technical Notes:** Implement URL parsing logic to detect the `wgetube.hammaadworks.com` domain and extract the original video URL. Redirect or process the request to trigger the download flow. Consider server-side routing or client-side URL handling.
+
+### Story 1.5: Direct File System Access for Downloaded Content
 
 As a user,
 I want to directly select the download location for video and audio content on my device,
@@ -176,17 +206,20 @@ So that I have full control over where my files are stored.
 
 **Acceptance Criteria:**
 
-**Given** I initiate a download
+**Given** I initiate a download (from Story 1.2 or 1.4)
 **When** the download is complete
 **Then** the browser prompts me to select a save location using the File System Access API.
+**And** before prompting for file system access, the app educates the user on why this permission is required for smooth functioning.
+**And** if the user grants permission, then the browser prompts me to select a save location using the File System Access API.
+**And** if the user denies permission, then the file is stored in the browser's default download location or IndexedDB as a fallback.
 
 **And** when I select a save location, then the video and its metadata (title, duration, source) are stored in the chosen location.
 **And** when content is stored locally, then I can still access and play the content from the saved location.
 **And** when content is stored locally, then I browse my library, and the content is listed with its metadata, referencing its location on the file system.
 
-**Prerequisites:** Story 1.2
+**Prerequisites:** Story 1.2, Story 1.4
 
-**Technical Notes:** Utilize the File System Access API (`window.showSaveFilePicker`) for direct user-selected file saving. Store file handles or paths (if available and persistent) and metadata in IndexedDB for library management.
+**Technical Notes:** Utilize the File System Access API (`window.showSaveFilePicker`) for direct user-selected file saving. Implement a user-friendly interstitial screen or dialog to explain permission needs. Implement fallback logic for permission denial. Store file handles or paths (if available and persistent) and metadata in IndexedDB for library management.
 
 ---
 
@@ -194,7 +227,43 @@ So that I have full control over where my files are stored.
 
 Provide a specialized player for rote learning and allow users to manage their downloaded/imported content.
 
-### Story 2.1: Basic Media Playback
+### Story 2.1: Import Local Media
+
+As a user,
+I want to import local video and audio files from my device into Wgetube's library,
+So that I can use the Looper Tutor with my existing media.
+
+**Acceptance Criteria:**
+
+**Given** I am in the library
+**When** I select "Import Media"
+**Then** a file picker appears.
+
+**And** when a file is selected, then it is imported into my library with associated metadata and can be used with the Looper Tutor.
+
+**Prerequisites:** Story 1.5
+
+**Technical Notes:** Implement file import functionality using browser file APIs.
+
+### Story 2.2: Remove Library Media
+
+As a user,
+I want to remove downloaded or imported media from my local library,
+So that I can manage my storage and keep my library organized.
+
+**Acceptance Criteria:**
+
+**Given** I am in the library
+**When** I select a media item
+**Then** I see an option to "Remove from Library".
+
+**And** when I confirm the removal, then the media item is deleted from my local storage and no longer appears in my library.
+
+**Prerequisites:** Story 2.1
+
+**Technical Notes:** Implement deletion logic for media files, ensuring proper cleanup of associated metadata from IndexedDB.
+
+### Story 2.3: Basic Media Playback
 
 As a user,
 I want to play downloaded video and audio content,
@@ -210,11 +279,11 @@ So that I can consume the media.
 **And** when I activate fullscreen mode, then the video expands to fill the screen.
 **And** when I activate black screen mode, then the screen turns black and only audio plays.
 
-**Prerequisites:** Story 1.4
+**Prerequisites:** Story 1.5, Story 2.1
 
 **Technical Notes:** Implement a media player component. Handle fullscreen and black screen modes.
 
-### Story 2.2: Playback Speed Control
+### Story 2.4: Playback Speed Control
 
 As a user,
 I want to adjust the playback speed of content,
@@ -228,11 +297,11 @@ So that I can learn at my own pace.
 
 **And** when I change the playback speed, then the media playback speed adjusts immediately without altering pitch.
 
-**Prerequisites:** Story 2.1
+**Prerequisites:** Story 2.3
 
 **Technical Notes:** Integrate playback speed control into the media player.
 
-### Story 2.3: A-B Section Looping
+### Story 2.5: A-B Section Looping
 
 As a user,
 I want to define and loop specific A-B sections of content,
@@ -247,30 +316,30 @@ So that I can repeat challenging parts for memorization.
 **And** when I set A and B points with precision, then the player seamlessly loops that section.
 **And** when a loop is active, then the loop count is displayed, accurately tracking current session and historical plays.
 
-**Prerequisites:** Story 2.1
+**Prerequisites:** Story 2.3
 
 **Technical Notes:** Implement A-B loop logic within the player, including UI for setting points and displaying loop count.
 
-### Story 2.4: Bookmark Management
+### Story 2.6: Saved Loops Management
 
 As a user,
-I want to save bookmarks within content and save defined A-B loop sections,
+I want to save specific points and defined A-B loop sections as "saved loops",
 So that I can quickly access important points and reuse specific learning segments.
 
 **Acceptance Criteria:**
 
 **Given** media is playing
-**When** I save a bookmark
-**Then** it is stored and accessible for quick navigation.
+**When** I save a specific point or an A-B loop
+**Then** it is stored as a "saved loop" and accessible for quick navigation.
 
-**And** when an A-B loop is defined, then I save it with a custom name, and it is stored and can be reused.
-**And** when a saved A-B loop, then I edit its name or timestamps, and the changes are reflected.
+**And** when a "saved loop" is defined, then I save it with a custom name, and it is stored and can be reused.
+**And** when a "saved loop", then I edit its name or timestamps, and the changes are reflected.
 
-**Prerequisites:** Story 2.3
+**Prerequisites:** Story 2.5
 
-**Technical Notes:** Implement bookmarking and saved loop management, including storage and editing functionality.
+**Technical Notes:** Implement saving and management of "saved loops" (both single points and A-B sections), including storage and editing functionality.
 
-### Story 2.5: Background and Screen-off Playback
+### Story 2.7: Background and Screen-off Playback
 
 As a user,
 I want audio to continue playing when the app is in the background or my screen is off,
@@ -282,29 +351,11 @@ So that I can continue learning without interruption.
 **When** I switch to another app or lock my screen
 **Then** the audio continues to play.
 
-**Prerequisites:** Story 2.1
+**Prerequisites:** Story 2.3
 
 **Technical Notes:** Implement background audio playback capabilities for PWA.
 
-### Story 2.6: Import Local Media
-
-As a user,
-I want to import local video and audio files from my device into Wgetube's library,
-So that I can use the Looper Tutor with my existing media.
-
-**Acceptance Criteria:**
-
-**Given** I am in the library
-**When** I select "Import Media"
-**Then** a file picker appears.
-
-**And** when a file is selected, then it is imported into my library with associated metadata and can be used with the Looper Tutor.
-
-**Prerequisites:** Story 1.4
-
-**Technical Notes:** Implement file import functionality using browser file APIs.
-
-### Story 2.7: Basic Content Organization
+### Story 2.8: Basic Content Organization
 
 As a user,
 I want to access and perform basic organization of my downloaded and imported content,
@@ -316,9 +367,9 @@ So that I can easily find and manage my media.
 **When** I browse my content
 **Then** I can view it by date and title.
 
-**And** when I am in the settings, then I configure system default settings (e.g., theme, default playback speed), and these settings are applied.
+**And** when I am in the settings, then I configure system default settings (e.g., theme, default playback speed, etc.).
 
-**Prerequisites:** Story 1.4, Story 2.6
+**Prerequisites:** Story 1.5, Story 2.1
 
 **Technical Notes:** Implement library browsing and basic sorting/filtering. Implement settings management for user preferences.
 
@@ -525,47 +576,6 @@ So that I can save videos with one click directly from video platforms.
 **Prerequisites:** Story 1.2
 
 **Technical Notes:** Develop a browser extension (e.g., for Chrome/Firefox) that interacts with the Wgetube PWA or API for downloading.
-
----
-
-## FR Coverage Matrix
-
-| FR ID | Description | Epic(s) | Story(ies) |
-|---|---|---|---|
-| FR1 | Users can initiate video downloads by pasting a URL from YouTube (Videos/Shorts) or Instagram Reels. | Epic 1 | Story 1.2 |
-| FR2 | Users can select desired video and audio formats/qualities for download. | Epic 1 | Story 1.2 |
-| FR3 | The system can automatically download videos when shared directly to the Wgetube PWA from mobile devices. | Epic 1 | Story 1.3 |
-| FR4 | The system can process and store downloaded video and audio content locally, along with associated metadata for history and library management. | Epic 1 | Story 1.4 |
-| FR4.1 | Users can export downloaded video and audio content to their device's file system (via browser "Save As" dialog). | Epic 1 | Story 1.5 |
-| FR5 | Users can play downloaded video and audio content, including fullscreen and black screen modes. | Epic 2 | Story 2.1 |
-| FR6 | Users can adjust the playback speed of content via a slider with granular control and hints (e.g., 0.5x, 1.0x, 1.25x), allowing for intermediate values. | Epic 2 | Story 2.2 |
-| FR7 | Users can define and loop specific A-B sections of content for repetitive learning, with seamless and precise setting mechanisms providing immediate visual/auditory feedback. | Epic 2 | Story 2.3 |
-| FR8 | Users can save bookmarks within content for quick access to specific points. | Epic 2 | Story 2.4 |
-| FR8.1 | Users can save defined A-B loop sections with a custom name for quick access and reuse, and edit their name and A-B timestamps later. | Epic 2 | Story 2.4 |
-| FR8.2 | The Looper Tutor tracks and displays the number of times a loop has been played, both for the current session and aggregated historically. | Epic 2 | Story 2.3 |
-| FR9 | The player supports background playback of audio. | Epic 2 | Story 2.5 |
-| FR10 | The player supports screen-off playback of audio. | Epic 2 | Story 2.5 |
-| FR10.1 | Users can import local video and audio files from their device into Wgetube's library for use with the Looper Tutor, with associated metadata stored. | Epic 2 | Story 2.6 |
-| FR11 | Users can access and browse their library of downloaded content. | Epic 2 | Story 2.7 |
-| FR12 | Users can perform basic organization of downloaded files (e.g., view by date, title). | Epic 2 | Story 2.7 |
-| FR12.1 | Users can configure system default settings (e.g., theme, default playback speed, etc.). | Epic 2 | Story 2.7 |
-| FR13 | The application provides a minimalist and intuitive user interface. | Epic 4 | Story 4.1 |
-| FR14 | The application is a Single Page Application (SPA). | Epic 1, Epic 4 | Story 1.1, Story 4.1 |
-| FR15 | The application is cross-operating system and cross-browser compliant. | Epic 1, Epic 4 | Story 1.1, Story 4.1 |
-| FR16 | The application adheres to WCAG highest standards for accessibility. | Epic 4 | Story 4.2 |
-| FR17 | The application delivers a highly performant and seamless user experience, particularly for downloading and playback. | Epic 1, Epic 2, Epic 4 | Story 1.1, Story 2.1, Story 4.3 |
-| FR18 | Users can download specific video chapters or define custom start/end timestamps for downloads. (Growth Feature) | Epic 5 | Story 5.2 |
-| FR19 | Users can initiate downloads via a browser extension for one-click functionality. (Growth Feature) | Epic 5 | Story 5.3 |
-| FR20 | Users can access a dedicated Tasbeeh Counter feature. | Epic 3 | Story 3.1 |
-| FR20.1 | Users can add, edit, and delete custom Zikr phrases and their translations. | Epic 3 | Story 3.2 |
-| FR21 | The Tasbeeh Counter prominently displays the current count, along with a configurable Zikr (phrase) and its translation. | Epic 3 | Story 3.1 |
-| FR22 | Users can increment and decrement the count via on-screen buttons (increment button always present, decrement button configurable), accompanied by haptic feedback. | Epic 3 | Story 3.1 |
-| FR23 | Users can configure input methods for incrementing/decrementing the count, including assigning volume up/down buttons on mobile devices and specific keyboard keys (e.g., spacebar) for desktop/keyboard users. | Epic 3 | Story 3.3 |
-| FR24 | Users can reset the current count. | Epic 3 | Story 3.1 |
-| FR24.1 | The Tasbeeh Counter provides visual feedback (e.g., confetti-like designs) upon reaching specific milestones (e.g., 10, 33, 66, 99) and the user-defined session target. | Epic 3 | Story 3.3 |
-| FR25 | The Tasbeeh Counter stores a history of Zikrs and their counts, and allows users to set a target for the current session. | Epic 3 | Story 3.4 |
-| FR26 | Users can view previous Zikrs as cards and select one to resume counting. | Epic 3 | Story 3.4 |
-| FR27 | The application provides a clean and informative landing page that introduces Wgetube, discusses its key features, and provides information for user training and engagement. | Epic 5 | Story 5.1 |
 
 ---
 
