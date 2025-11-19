@@ -343,7 +343,7 @@ The component strategy is to leverage the accessible, unstyled primitives of Rad
 -   **Error Messaging:** Display user-friendly, actionable error messages for all client-side and API-related errors, avoiding technical jargon. Utilize toast notifications for minor issues and modal dialogs for critical errors.
 -   **Loading States:** Implement clear loading indicators (spinners, skeleton screens) for asynchronous operations to manage user expectations.
 -   **Accessibility:** Ensure all interactive elements are keyboard navigable, have appropriate ARIA labels for screen readers, and meet WCAG color contrast standards.
--   **Code Organization:** Organize UI components and related logic in a feature-based structure (e.g., `src/features/downloader`, `src/features/looper-tutor`) to maintain modularity and clarity.
+-   **Code Organization:** Organize UI components and related logic in a feature-based structure (e.g., `features/downloader`, `features/looper-tutor`) to maintain modularity and clarity.
 
 ---
 
