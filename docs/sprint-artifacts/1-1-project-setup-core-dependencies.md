@@ -26,6 +26,8 @@ So that I can begin building the application.
 
 *   **2025-11-19**: Story created by hammaadworks.
 
+**Status:** ready-for-dev
+
 
 ## Acceptance Criteria
 
@@ -69,3 +71,7 @@ So that I can begin building the application.
 The project will be initialized using `npx create-next-app@latest wgetube --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"`. This establishes the base architecture with Next.js, TypeScript, Tailwind CSS, ESLint, and Next.js as the build tooling. The `ytdlp-nodejs` dependency is critical for video downloading functionality.
 
 **Source:** `epics.md`, `architecture.md`
+
+## Dev Agent Record
+
+*   **Context Reference:** [1-1-project-setup-core-dependencies.context.xml](stories/1-1-project-setup-core-dependencies.context.xml)

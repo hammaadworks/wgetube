@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --primary-500: #D35400;
+  --primary-600: #BF4A00; /* Slightly darker for hover */
+  --secondary-500: #27AE60;
+  --secondary-600: #229954; /* Slightly darker for hover */
 }
 
 @theme inline {

@@ -1,0 +1,217 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>1</epicId>
+    <storyId>2</storyId>
+    <title>Basic Video Download via URL</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-19</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/1-2-basic-video-download-via-url.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>As a user,</asA>
+    <iWant>I want to paste a YouTube or Instagram Reels URL and initiate a download,</iWant>
+    <soThat>so that I can save the video for offline viewing.</soThat>
+    <tasks>
+*   **Task 1: Design and Implement Downloader UI (AC: 1)**
+    *   [ ] Create a basic page for video downloading.
+    *   [ ] Implement a text input field for video URL.
+    *   [ ] Implement a "Fetch Details" button.
+    *   [ ] Implement UI to display video thumbnail, title, duration, and available formats.
+*   **Task 2: Implement URL Validation and Details Fetching (AC: 1, 2, 3)**
+    *   [ ] Create Next.js API route (`/api/fetch-details`) to use `ytdlp-nodejs` for fetching video metadata.
+    *   [ ] Implement client-side logic to call `/api/fetch-details` with pasted URL.
+    *   [ ] Implement basic URL validation logic on both client and server-side to ensure valid video sources (e.g., regex for YouTube/Instagram URLs).
+    *   [ ] Optimize API calls and data processing for efficiency to quickly display download options.
+*   **Task 3: Implement Download Initiation (AC: 4)**
+    *   [ ] Implement UI for selecting desired format/quality.
+    *   [ ] Implement a "Download" button.
+    *   [ ] Create Next.js API route (`/api/download`) to use `ytdlp-nodejs` for video download.
+    *   [ ] Implement client-side logic to call `/api/download` with selected format/quality.
+    *   [ ] Implement download progress indication in the UI.
+*   **Task 4: Integrate with Story 1.5 for File Saving (AC: 5)**
+    *   [ ] Ensure the download completion triggers the file saving mechanism as defined in Story 1.5 (Direct File System Access for Downloaded Content).
+*   **Task 5: Testing**
+    *   [ ] Unit test client-side URL validation.
+    *   [ ] Unit test `ytdlp-nodejs` metadata fetching logic within `/api/fetch-details`.
+    *   [ ] Unit test `ytdlp-nodejs` download initiation logic within `/api/download`.
+    *   [ ] Integration test the flow from UI input to metadata display.
+    *   [ ] Integration test the flow from UI download click to download initiation.
+    *   [ ] E2E test the full download process for a valid YouTube URL.
+</tasks>
+  </story>
+
+  <acceptanceCriteria>
+1.  Given I am on the downloader page, when I paste a valid YouTube video URL into the input field and click "Fetch Details", then the system displays video details (thumbnail, title, duration) and available formats.
+2.  And the system performs sanity checks on the pasted URL to ensure it's a valid video source and prevents unnecessary resource usage for invalid links.
+3.  And the system optimizes the process to quickly display download options and initiate download without wasting resources.
+4.  And when I select a desired format/quality and click "Download", then the video download initiates and progress is shown.
+5.  And when the download is complete, then the system proceeds to save the file as per Story 1.5.
+</acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <entry>
+        <path>docs/prd.md</path>
+        <title>Wgetube - Product Requirements Document</title>
+        <section>Product Scope - MVP</section>
+        <snippet>The Minimum Viable Product for Wgetube will focus on delivering a seamless and effective experience for Quran Hifz. This includes: Downloader: Functionality to easily download videos from YouTube (Videos/Shorts) and Instagram Reels, with options for format selection.</snippet>
+      </entry>
+      <entry>
+        <path>docs/prd.md</path>
+        <title>Wgetube - Product Requirements Document</title>
+        <section>Key Interactions</section>
+        <snippet>Video Download and Format Selection: The user's journey from pasting a link (or sharing) to selecting desired video/audio formats and initiating the download.</snippet>
+      </entry>
+      <entry>
+        <path>docs/prd.md</path>
+        <title>Wgetube - Product Requirements Document</title>
+        <section>Functional Requirements - I. Core Video Downloading</section>
+        <snippet>FR1: Users can initiate video downloads by pasting a URL from YouTube (Videos/Shorts) or Instagram Reels. FR2: Users can select desired video and audio formats/qualities for download.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Executive Summary</section>
+        <snippet>Video downloading is handled via `ytdlp-nodejs` within Next.js API Routes.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>API Pattern</section>
+        <snippet>RESTful API using Next.js API Routes. Leverages Next.js capabilities, unified JS/TS stack, suitable for serverless functions.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Technology Stack Details - Core Technologies</section>
+        <snippet>`ytdlp-nodejs` (latest stable): Node.js wrapper for `yt-dlp`, used within Next.js API routes to fetch video metadata and download content.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>API Contracts - 1. Next.js API Route: `/api/fetch-details`</section>
+        <snippet>Purpose: Fetches metadata for a given video URL without initiating a download. Method: GET. Request Query Parameters: `url` (Required).</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>API Contracts - 2. Next.js API Route: `/api/download`</section>
+        <snippet>Purpose: Initiates the download of a video from a given URL with specified format and quality. Method: POST. Request Body: `url`, `formatId` (Required).</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Security Architecture</section>
+        <snippet>URL Validation: Robust server-side and client-side validation of input URLs to prevent injection attacks or processing of malicious links.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Performance Considerations</section>
+        <snippet>Download Speed: Optimized to minimize latency for video fetching and streaming, aiming for near real-time initiation of downloads after URL submission.</snippet>
+      </entry>
+      <entry>
+        <path>docs/ux-design-specification.md</path>
+        <title>wgetube UX Design Specification</title>
+        <section>User Journey: "Share to Wgetube" Flow / Downloader - Flow Steps - Entry &amp; Validation</section>
+        <snippet>User sees: Wgetube PWA opens, showing a loading indicator or "Processing Link..." message. System responds: Performs URL validation. If valid, displays video details and available download formats/qualities.</snippet>
+      </entry>
+      <entry>
+        <path>docs/ux-design-specification.md</path>
+        <title>wgetube UX Design Specification</title>
+        <section>User Journey: "Share to Wgetube" Flow / Downloader - Flow Steps - Format Selection</section>
+        <snippet>User sees: A clear list or dropdown of available video/audio formats and qualities. User does: Selects the desired format/quality.</snippet>
+      </entry>
+      <entry>
+        <path>docs/ux-design-specification.md</path>
+        <title>wgetube UX Design Specification</title>
+        <section>User Journey: "Share to Wgetube" Flow / Downloader - Flow Steps - Download Initiation</section>
+        <snippet>User sees: A "Download" button. A progress indicator appears upon tapping. System responds: Initiates download, provides visual feedback of progress.</snippet>
+      </entry>
+      <entry>
+        <path>docs/epics.md</path>
+        <title>Wgetube - Epic Breakdown</title>
+        <section>Epic 1: Foundation &amp; Core Downloader</section>
+        <snippet>Establish the basic application infrastructure and enable users to download videos from supported platforms. FRs Covered: FR1, FR1.1, FR2, FR3, FR4.</snippet>
+      </entry>
+      <entry>
+        <path>docs/epics.md</path>
+        <title>Wgetube - Epic Breakdown</title>
+        <section>Story 1.2: Basic Video Download via URL</section>
+        <snippet>As a user, I want to paste a YouTube or Instagram Reels URL and initiate a download, So that I can save the video for offline viewing. (Including full Acceptance Criteria and Technical Notes)</snippet>
+      </entry>
+    </docs>
+      <code>
+        <entry>
+          <path>package.json</path>
+          <kind>config</kind>
+          <symbol>dependencies</symbol>
+          <reason>Leverages installed `ytdlp-nodejs` for core video downloading functionality.</reason>
+        </entry>
+        <entry>
+          <path>lib/ytdlp-client.ts</path>
+          <kind>utility</kind>
+          <reason>Planned wrapper for `ytdlp-nodejs` to abstract video fetching and downloading logic.</reason>
+        </entry>
+        <entry>
+          <path>app/api/fetch-details/route.ts</path>
+          <kind>api-route</kind>
+          <reason>Planned Next.js API route for fetching video metadata without initiating a download.</reason>
+        </entry>
+        <entry>
+          <path>app/api/download/route.ts</path>
+          <kind>api-route</kind>
+          <reason>Planned Next.js API route for initiating video downloads with specified format and quality.</reason>
+        </entry>
+      </code>
+    <dependencies>
+      <nodejs>
+        <package name="ytdlp-nodejs" version="^2.3.5" reason="Core dependency for video fetching and downloading." />
+        <package name="next" version="16.0.3" reason="Framework for API routes and frontend UI." />
+        <package name="react" version="19.2.0" reason="Library for building user interface components." />
+      </nodejs>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <rule>URL Validation: Robust server-side and client-side validation of input URLs to prevent injection attacks or processing of malicious links. [Source: docs/architecture.md#Security-Architecture]</rule>
+    <rule>Performance Optimization: API calls and data processing must be optimized for efficiency to quickly display download options and minimize latency. [Source: docs/architecture.md#Performance-Considerations]</rule>
+    <rule>UI Responsiveness: The UI must remain fluid and responsive during download operations. [Source: docs/architecture.md#Performance-Considerations]</rule>
+    <rule>Vercel Resource Limits: Strict adherence to Vercel's Hobby Plan limits for serverless functions. [Source: docs/architecture.md#Performance-Considerations]</rule>
+    <rule>Client-side UI: Requires components for URL input, format selection, download initiation, and progress indication. [Source: docs/ux-design-specification.md#User-Journey:-"Share-to-Wgetube"-Flow-/-Downloader]</rule>
+  </constraints>
+  <interfaces>
+    <interface>
+      <name>/api/fetch-details</name>
+      <kind>REST endpoint</kind>
+      <signature>GET /api/fetch-details?url={videoUrl}</signature>
+      <path>app/api/fetch-details/route.ts</path>
+      <description>Fetches metadata for a given video URL without initiating a download.</description>
+    </interface>
+    <interface>
+      <name>/api/download</name>
+      <kind>REST endpoint</kind>
+      <signature>POST /api/download (body: {url, formatId, quality?})</signature>
+      <path>app/api/download/route.ts</path>
+      <description>Initiates the download of a video from a given URL with specified format and quality.</description>
+    </interface>
+  </interfaces>
+  <tests>
+    <standards>The testing strategy will involve Unit, Integration, and End-to-End (E2E) tests. Unit tests will be co-located with the code and focus on individual functions and components. Integration tests will verify interactions between UI components and API routes. E2E tests will simulate full user flows for downloading videos.</standards>
+    <locations>
+      <path>app/**/*.test.ts</path>
+      <path>app/**/*.test.tsx</path>
+      <path>lib/**/*.test.ts</path>
+      <path>tests/e2e/**/*.spec.ts</path>
+    </locations>
+    <ideas>
+      <idea ac_id="AC1">Unit test client-side URL validation and the `/api/fetch-details` API route for correct metadata fetching and display in the UI.</idea>
+      <idea ac_id="AC2">Unit test server-side URL validation within `/api/fetch-details` and integration test UI error handling for invalid URLs.</idea>
+      <idea ac_id="AC3">Performance test the `/api/fetch-details` endpoint to ensure quick response times.</idea>
+      <idea ac_id="AC4">Unit test the `/api/download` API route and integration test the UI for download initiation and progress indication.</idea>
+      <idea ac_id="AC5">E2E test the full download process, verifying that the file saving mechanism (as defined in Story 1.5) is triggered upon completion.</idea>
+    </ideas>
+  </tests>
+</story-context>

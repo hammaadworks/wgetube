@@ -1,0 +1,175 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>1</epicId>
+    <storyId>1</storyId>
+    <title>Project Setup &amp; Core Dependencies</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-19</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/sprint-artifacts/1-1-project-setup-core-dependencies.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>As a developer,</asA>
+    <iWant>I want to set up the basic project structure and integrate core dependencies,</iWant>
+    <soThat>So that I can begin building the application.</soThat>
+    <tasks>
+*   **Task 1: Initialize Next.js Project**
+    *   Run `npx create-next-app@latest wgetube --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"`
+    *   Verify project structure is created as expected.
+*   **Task 2: Install Core Dependencies**
+    *   Install `ytdlp-nodejs` using `npm install ytdlp-nodejs` (or equivalent).
+    *   Verify `ytdlp-nodejs` is listed in `package.json` and `node_modules`.
+*   **Task 3: Verify Development Server Startup**
+    *   Run `npm run dev`.
+    *   Verify the development server starts without errors.
+    *   Access the application in a browser to confirm basic functionality.
+*   **Task 4: Testing**
+    *   Create a basic unit test to confirm `ytdlp-nodejs` can be imported and a dummy function can be called (if applicable).
+    *   Create an integration test to verify `npm run dev` command.
+</tasks>
+  </story>
+
+  <acceptanceCriteria>
+*   **Given** a new project
+*   **When** `create-next-app` is run with `--typescript --tailwind --eslint --app --src-dir --import-alias "@/*"`
+*   **Then** the project structure is initialized.
+*   **And** core dependencies like `ytdlp-nodejs` are installed and available for use.
+*   **And** `npm run dev` starts the development server without errors.
+</acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <entry>
+        <path>docs/prd.md</path>
+        <title>Wgetube - Product Requirements Document</title>
+        <section>Executive Summary</section>
+        <snippet>Wgetube aims to empower productive personal growth during disconnected moments, specifically by assisting in Quran Hifz through reliable video downloading and a specialized looping learning technique.</snippet>
+      </entry>
+      <entry>
+        <path>docs/prd.md</path>
+        <title>Wgetube - Product Requirements Document</title>
+        <section>Project Classification</section>
+        <snippet>Wgetube is classified as a web application, leveraging modern web technologies to provide a seamless user experience. Its core functionality as a video downloader and specialized player places it firmly within the EdTech domain, with a medium complexity level.</snippet>
+      </entry>
+      <entry>
+        <path>docs/prd.md</path>
+        <title>Wgetube - Product Requirements Document</title>
+        <section>Non-Functional Requirements</section>
+        <snippet>The application must deliver a highly performant and seamless user experience, particularly for video downloading and playback, while strictly adhering to the resource limitations of free-tier hosting.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Executive Summary</section>
+        <snippet>The Wgetube architecture is designed as a performant, highly usable, and cost-efficient web application, leveraging Next.js (React) for a full-stack experience, hosted on Vercel's free tier. Video downloading is handled via `ytdlp-nodejs` within Next.js API Routes.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Project Initialization</section>
+        <snippet>The project will be initialized using `npx create-next-app@latest` to establish a robust and modern foundation. This command establishes the base architecture with Next.js, TypeScript, Tailwind CSS, ESLint.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Technology Stack Details</section>
+        <snippet>Core Technologies: Next.js (v14.x), React (v18.x), TypeScript (v5.x), Tailwind CSS (v3.x), `ytdlp-nodejs` (latest stable), IndexedDB / LocalForage (latest stable), Vercel (Hobby Plan).</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Development Environment</section>
+        <snippet>Prerequisites: Node.js, npm/yarn/pnpm, Git, Code Editor (VS Code recommended). Setup Commands: `git clone`, `npm install`, `npm run dev`.</snippet>
+      </entry>
+      <entry>
+        <path>docs/architecture.md</path>
+        <title>Architecture</title>
+        <section>Architecture Decision Records (ADRs)</section>
+        <snippet>ADR-001: Core Technology Stack for Wgetube - Decision: Next.js (React) for full-stack, Vercel for hosting, `ytdlp-nodejs` for video downloading.</snippet>
+      </entry>
+      <entry>
+        <path>docs/ux-design-specification.md</path>
+        <title>wgetube UX Design Specification</title>
+        <section>Design System Foundation</section>
+        <snippet>Chosen Design System: Radix UI (with shadcn/ui, Magic UI, and Aceternity UI components). Rationale: highly customizable, modern aesthetic, visually rich components.</snippet>
+      </entry>
+      <entry>
+        <path>docs/ux-design-specification.md</path>
+        <title>wgetube UX Design Specification</title>
+        <section>Core Experience Principles</section>
+        <snippet>Speed: Instantaneous and fluid. Guidance: Minimal and contextual. Flexibility: Balanced control and simplicity. Feedback: Subtle, immediate, and informative.</snippet>
+      </entry>
+      <entry>
+        <path>docs/ux-design-specification.md</path>
+        <title>wgetube UX Design Specification</title>
+        <section>Responsive Design &amp; Accessibility</section>
+        <snippet>The application will adopt a mobile-first, cross-platform optimized responsive strategy, ensuring a consistent and intuitive user experience across various devices and screen sizes.</snippet>
+      </entry>
+      <entry>
+        <path>docs/epics.md</path>
+        <title>Wgetube - Epic Breakdown</title>
+        <section>Epic 1: Foundation &amp; Core Downloader</section>
+        <snippet>Establish the basic application infrastructure and enable users to download videos from supported platforms. Story 1.1: Project Setup &amp; Core Dependencies.</snippet>
+      </entry>
+    </docs>
+      <code>
+        <entry>
+          <path>package.json</path>
+          <kind>config</kind>
+          <symbol>dependencies</symbol>
+          <reason>Defines core project dependencies like Next.js, React, ytdlp-nodejs.</reason>
+        </entry>
+        <entry>
+          <path>next.config.ts</path>
+          <kind>config</kind>
+          <reason>Next.js framework configuration, including React Compiler setting.</reason>
+        </entry>
+        <entry>
+          <path>postcss.config.mjs</path>
+          <kind>config</kind>
+          <reason>PostCSS configuration, integrating Tailwind CSS.</reason>
+        </entry>
+        <entry>
+          <path>eslint.config.mjs</path>
+          <kind>config</kind>
+          <reason>ESLint configuration for code quality and style.</reason>
+        </entry>
+        <entry>
+          <path>tsconfig.json</path>
+          <kind>config</kind>
+          <reason>TypeScript compiler configuration, defining project's TypeScript settings and path aliases.</reason>
+        </entry>
+      </code>
+    <dependencies>
+      <nodejs>
+        <package name="next" version="16.0.3" />
+        <package name="react" version="19.2.0" />
+        <package name="react-dom" version="19.2.0" />
+        <package name="ytdlp-nodejs" version="^2.3.5" />
+      </nodejs>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <rule>Adherence to Vercel Hobby Plan resource limitations for deployment.</rule>
+    <rule>Application must adhere to WCAG highest standards for accessibility.</rule>
+    <rule>Mobile-first and cross-platform optimized responsive design.</rule>
+    <rule>Minimalist and intuitive user experience principles.</rule>
+    <rule>Strict adherence to free-tier hosting limits (e.g., Vercel's Hobby Plan).</rule>
+  </constraints>
+  <interfaces></interfaces>
+  <tests>
+    <standards>The project employs a comprehensive testing strategy covering Unit, Integration, E2E, Performance, and Accessibility tests. Unit tests will use Jest/React Testing Library, integration tests will verify component interactions, E2E tests will simulate user journeys with Playwright or Cypress, and performance/accessibility will be monitored via Vercel metrics and WCAG compliance checks.</standards>
+    <locations>
+      <path>src/**/*.test.ts</path>
+      <path>src/**/*.test.tsx</path>
+      <path>tests/e2e/**/*.spec.ts</path>
+    </locations>
+    <ideas>
+      <idea ac_id="AC1">Verify existence of core directories (e.g., app/, components/, lib/, public/) and key configuration files (e.g., next.config.ts, tsconfig.json) after project initialization.</idea>
+      <idea ac_id="AC2">Confirm 'ytdlp-nodejs' is listed in package.json dependencies and can be successfully imported in a test file.</idea>
+      <idea ac_id="AC3">Run 'npm run dev' and assert successful development server startup without errors, followed by a basic HTTP request to verify server responsiveness.</idea>
+    </ideas>
+  </tests>
+</story-context>
